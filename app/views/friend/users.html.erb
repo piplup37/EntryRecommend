@@ -1,0 +1,6 @@
+<h2>友人一覧</h2>
+<% @users.each do |user| %>
+<ul>
+  <li><%= user.user_name %> <%= user.lank%>年生 <%= button_to('リムーブ',:action => 'unfollow',:id => user.id) %></li>
+</ul>
+<% end %>

@@ -1,0 +1,12 @@
+<p>次の学年までにあと <%= least %> 単位は修得しておきましょう。<br>
+以下の科目はおすすめです。</p>
+<% @husoku = least %>
+<% recommend_subjects.each do |sub| %>
+  <% unless Score.risyuzumi?(sub,current_user)%>
+    <% if sub.part == "後期" %>
+    <%= link_to sub.sub_name,sub %><br> <% @husoku -= sub.credit.to_i %>
+    <% break if @husoku == 0 %>
+    <% end %>
+  <% end %>
+<% end %>
+    

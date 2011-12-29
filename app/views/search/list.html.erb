@@ -1,0 +1,25 @@
+<h2>検索結果</h2>
+<table border="1">
+  <tr>
+    <th>科目名</th><th>年次</th><th>配当期</th>
+    <th>時限</th><th>区分</th><th>必選</th><th></th>
+  </tr>
+
+<% @subjects.each do |sub| %>
+  <tr>
+    <td><%= link_to sub.sub_name,sub %></td>
+    <td><%= sub.year %></td> 
+    <td><%= sub.part %></td>
+    <td><%= sub.period %></td>
+    <td><%= sub.kubun %></td>
+    <td><%= sub.ip_comp %></td>
+    <td><% if current_user.role.r_name == "teacher" %>
+          <%= form_tag :controller => 'curriculums',:action => 'add_select' do %>
+          <%= hidden_field_tag :add_subject,sub.id %>
+          <%= submit_tag 'カリキュラムに追加' %>
+        <% end %><% end %></td>
+  </tr>
+<% end %>
+
+</table>
+

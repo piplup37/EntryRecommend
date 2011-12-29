@@ -1,0 +1,223 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+onishi:
+  t_name: 大西 克彦
+
+hisamatsu:
+  t_name: 久松 潤之
+  
+kounosu:
+  t_name: 鴻巣 敏之
+
+masutani:
+  t_name: 升谷 保博
+
+yamarai:
+  t_name: 山来 寧志
+
+watanabe:
+  t_name: 渡邊 郁
+
+noborio:
+  t_name: 登尾 啓史
+
+hukuyama:
+  t_name: 福山 峻一
+
+nankaku:
+  t_name: 南角 茂樹
+
+kitajima:
+  t_name: 北嶋 暁
+
+koeda:
+  t_name: 小枝 正直
+
+yamaguchi:
+  t_name: 山口 哲
+  
+okumura:
+  t_name: 奥村 英史
+
+tanaka:
+  t_name: 田中 輝明
+
+kakiuchi:
+  t_name: 垣内 洋介
+  
+sumimoto:
+  t_name: 住本 欣洋
+  
+matsura:
+  t_name: 松浦 功哲 
+
+takane:
+  t_name: 高根 英哉
+  
+itou:
+  t_name: 伊藤 優
+  
+ota:
+  t_name: 太田 寛
+  
+mizukami:
+  t_name: 水上 悦雄
+  
+sakamoto:
+  t_name: 坂本 知宏
+  
+otani:
+  t_name: 太谷 宗啓
+  
+sakai:
+  t_name: 坂井 清泰
+  
+kawachi:
+  t_name: 川地 亜弥子
+
+hiranuma:
+  t_name: 平沼 博将
+
+yoshimura:
+  t_name: 吉村 健一
+
+oda:
+  t_name: 小田 康徳 
+
+tomita:
+  t_name: 冨田 成美
+
+wan:
+  t_name: 王 少鋒
+  
+ejiri:
+  t_name: 江尻 彰
+
+iwamoto:
+  t_name: 岩本 宗治
+
+adachi:
+  t_name: 足立 英郎
+
+tamai:
+  t_name: 玉井 眞理子
+
+makino:
+  t_name: 牧野 泰典
+
+bou:
+  t_name: 棒 堅二
+
+nagaoka:
+  t_name: 長岡 範泰
+
+moriishi:
+  t_name: 森石 峰一
+
+kimura:
+  t_name: 木村 仁美
+
+yokoyama:
+  t_name: 横山 宏
+
+komori:
+  t_name: 小森 一平
+
+tamashi:
+  t_name: タマシ
+
+uono:
+  t_name: 魚野 昌子
+
+walker:
+  t_name: ウォーカー
+
+takahashi:
+  t_name: 孝橋 邦雄
+
+wakasa:
+  t_name: 若狭 智子
+
+kusamoto:
+  t_name: 草本 康司郎
+
+higashi:
+  t_name: 東 眞理子 
+
+tatemoto:
+  t_name: 立本 秀洋
+
+yamamoto:
+  t_name: 山本 智弘
+
+kishida:
+  t_name: 岸田 茂美 
+
+hirota:
+  t_name: 廣田 典子
+
+hara:
+  t_name: 原 俊樹 
+
+yamazaki:
+  t_name: 山崎 純一
+
+yokota:
+  t_name: 横田 一哉
+
+kitagawa:
+  t_name: 北川 尚 
+
+katou:
+  t_name: 加藤 智也 
+
+kiko:
+  t_name: 木子 香 
+
+jyaku:
+  t_name: 雀 水晶 
+
+gowa:
+  t_name: 後和 美朝 
+
+kaneda:
+  t_name: 金田 啓稔 
+
+muraki:
+  t_name: 村木 有也 
+
+ichitani:
+  t_name: 市谷 浩一郎
+
+kouno:
+  t_name: 港野 恵美
+
+ikeda:
+  t_name: 池田 早耶香
+
+tyou:
+  t_name: 鳥 和成
+ 
+izui:
+  t_name: 出井 章雅 
+
+yamashita:
+  t_name: 山下 大地 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

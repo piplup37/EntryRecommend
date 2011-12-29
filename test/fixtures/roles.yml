@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+admin:
+  r_name: admin
+
+student:
+  r_name: student
+
+teacher:
+  r_name: teacher

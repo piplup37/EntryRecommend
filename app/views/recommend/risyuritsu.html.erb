@@ -1,0 +1,8 @@
+<h2><%= @subject.sub_name %></h2>
+
+<p>履修済みユーザー</p>
+<% @subject.users.each do |user| %>
+  <li><%= user.user_name %>(<%= user.lank%>年生)</li>
+<% end %>
+
+<p>この科目は<%= User.count %>人中、<%= @subject.users.size %>人が履修していました</p>

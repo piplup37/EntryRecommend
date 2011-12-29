@@ -1,0 +1,10 @@
+<p><%= @subject.sub_name %></p>
+<%= form_tag(:action => "add_subject") do %>
+  
+  <% @curriculums.each do |cul| %>
+    <%= check_box_tag "culs[]",cul.id %>
+      <%= cul.lank %>年生向け<br>
+    <% end %>
+  <%= hidden_field_tag @subject %>
+  <%= submit_tag 'カリキュラムに追加' %>
+<% end %>

@@ -1,0 +1,7 @@
+<h2>学友申請を送る</h2>
+<%= form_tag :action => 'confirm' do %>
+<%= hidden_field_tag :to,params[:send_to_user] %>
+<%= label_tag 'メッセージ' %><br />
+<%= text_area_tag :confirm_message %>
+<%= submit_tag '確認' %>
+<% end %>

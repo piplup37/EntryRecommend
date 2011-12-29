@@ -1,0 +1,52 @@
+<h1>ユーザー作成 </h1>
+ 
+<%= form_for @user do |f| %>
+ 
+<% if @user.errors.any? %>
+ <div id="error_explanation">
+ <h2><%= pluralize(@user.errors.count, "error") %> prohibited this role from being saved:</h2>
+ <ul>
+ <% @user.errors.full_messages.each do |msg| %>
+ <li><%= msg %></li>
+ <% end %>
+ </ul>
+ </div>
+<% end %>
+ 
+ 
+<div class="field">
+ <%= f.label :email %><br />
+ <%= f.text_field :email %><br />
+</div>
+<div class="field"> 
+ <%= f.label :password %><br />
+ <%= f.password_field :password %><br />
+</div>
+<div class="field">
+ <%= f.label :password_confirmation %><br />
+ <%= f.password_field :password_confirmation %><br />
+</div>
+<div class="field">
+ <%= f.label :no %><br />
+ <%= f.text_field :no %><br />
+</div>
+<div class="field">
+ <%= f.label :user_name %><br />
+ <%= f.text_field :user_name %><br />
+</div>
+<div class="field">
+ <%= f.label :cource %><br />
+ <%= f.text_field :cource %><br />
+</div>
+<div class="field">
+ <%= f.label :lank %><br />
+ <%= f.number_field :lank %><br />
+</div>
+<div class="field">
+ <%= f.label :role %><br />
+ <%= f.select :role, Role.all.collect {|p| [ p.r_name, p.id ]} %><br />
+</div>
+<div class="actions">
+ <%= f.submit %>
+</div>
+<% end %>

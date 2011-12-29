@@ -1,0 +1,7 @@
+<%= form_tag :action => 'test' do %>
+学年: <%= number_field_tag 'gakunen' %>
+区分: <%= text_field_tag 'kubun' %>
+必選: <%= text_field_tag 'hitsusen' %>
+<%= submit_tag '検索' %>
+<% end %>
+

@@ -1,0 +1,46 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+pankyo:
+  categ_name: 一般教養
+
+english:
+  categ_name: 英語
+
+foreign:
+  categ_name: 外国語
+
+math_science:
+  categ_name: 数学・理科
+
+literacy:
+  categ_name: 情報基礎
+
+hardware:
+  categ_name: ハードウェア
+
+software:
+  categ_name: ソフトウェア
+
+programing:
+  categ_name: プログラミング
+
+network:
+  categ_name: ネットワーク
+
+web:
+  categ_name: Web
+
+system:
+  categ_name: システム開発
+
+security:
+  categ_name: セキュリティ
+
+basetheory:
+  categ_name: 基礎理論
+
+mediatech:
+  categ_name: メディア技術
+
+futuretech:
+  categ_name: 未来コンピュータシステム

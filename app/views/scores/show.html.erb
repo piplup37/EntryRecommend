@@ -1,0 +1,19 @@
+<%= link_to 'New Score',new_score_path %>
+<p>
+  <b>User:</b>
+  <%= @score.user.user_name %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @score.subject.sub_name %>
+</p>
+
+<p>
+  <b>Score:</b>
+  <%= @score.tensu %>
+</p>
+
+
+<%= link_to 'Edit', edit_score_path(@score) %> |
+<%= link_to 'Back', scores_path %>

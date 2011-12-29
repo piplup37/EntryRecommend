@@ -1,0 +1,22 @@
+<h1>履修登録中の科目一覧</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Subject</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @entried_subjects.each do |score| %>
+  <tr>
+    <td><%= score.user.user_name %></td>
+    <td><%= score.subject.sub_name %></td>
+    <td><%= link_to 'Show', score %></td>
+    <td><%= link_to 'Edit', edit_score_path(score) %></td>
+    <td><%= link_to 'Destroy', score, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+

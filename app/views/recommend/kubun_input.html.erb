@@ -1,0 +1,8 @@
+<%= form_tag :action => 'kubun_recommend_render' do %>
+学年: <%= number_field_tag 'gakunen' %><br>
+区分: <%= text_field_tag 'kubun' %><br>
+必選: <%= text_field_tag 'hitsusen' %><br>
+単位数: <%= number_field_tag 'credit' %>
+<%= submit_tag '検索' %>
+<% end %>
+

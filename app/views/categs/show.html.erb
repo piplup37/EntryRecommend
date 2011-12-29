@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @categ.categ_name %></h1>
+
+<% @categ.subjects.each do |subs| %>
+	<p><% if subs.year <= current_user.lank and subs.part == '後期' %>
+	   <% unless Score.where(:user_id => current_user,:subject_id => subs.id).exists? %>
+       <%= link_to subs.sub_name, subs %></p>
+      <% end %>
+     <% end %>
+<% end %>
+
+
+<%= link_to 'Edit', edit_categ_path(@categ) %> |
+<%= link_to 'Back', categs_path %>

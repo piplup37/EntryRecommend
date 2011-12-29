@@ -1,0 +1,21 @@
+<h2>カテゴリ一覧</h2>
+
+<table>
+  <tr>
+    <th>Categ name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @categs.each do |categ| %>
+  <tr>
+    <td><%= link_to categ.categ_name, categ %></td>
+    <td><%= link_to 'Edit', edit_categ_path(categ) if can? :update, categ %></td>
+    <td><%= link_to 'Destroy', categ, confirm: 'Are you sure?', method: :delete if can? :destroy, categ %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Categ', new_categ_path %>

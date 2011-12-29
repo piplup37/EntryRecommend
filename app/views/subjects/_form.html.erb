@@ -1,0 +1,59 @@
+<%= form_for(@subject) do |f| %>
+  <% if @subject.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@subject.errors.count, "error") %> prohibited this subject from being saved:</h2>
+
+      <ul>
+      <% @subject.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sub_name %><br />
+    <%= f.text_field :sub_name %>
+  </div>
+  <div class="field">
+    <%= f.label :credit %><br />
+    <%= f.number_field :credit %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br />
+    <%= f.number_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :part %><br />
+    <%= f.select( :part, ['前期','後期'],{ :multiple => true }) %>
+  </div>
+  <div class="field">
+    <%= f.label :period %><br />
+    <%= f.select( :period, ['月曜1限','月曜2限','月曜3限','月曜4限','月曜5限',
+    														'火曜1限','火曜2限','火曜3限','火曜4限','火曜5限',
+    														'水曜1限','水曜2限','水曜3限','水曜4限','水曜5限',
+    														'木曜1限','木曜2限','木曜3限','木曜4限','木曜5限',
+    														'金曜1限','金曜2限','金曜3限','金曜4限','金曜5限','集中'],{ :multiple => true }) %>
+  </div>
+  <div class="field">
+    <%= f.label :kubun %><br />
+    <%= f.select( :kubun, ['総合A群','総合B群','総合C群','基礎専門','専門'],{ :multiple => true }) %>
+  </div>
+  <div class="field">
+    <%= f.label :ip_comp %><br />
+    <%= f.select( :ip_comp, ['必修','選択必修','選択'],{ :multiple => true }) %>
+  </div>
+  <div class="field">
+    <%= f.label :cs_comp %><br />
+    <%= f.select( :cs_comp, ['必修','選択必修','選択'],{ :multiple => true }) %>
+  </div>
+  
+  <div class="field">
+    <%= select_tag(:set_categ,options_from_collection_for_select(
+    	Categ.find(:all),:id,:categ_name),{:include_blank => "選択してください"}) %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

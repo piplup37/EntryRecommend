@@ -1,0 +1,5 @@
+<h2><%= @friend_request.from.user_name %> さんからの学友申請</h2>
+<p>メッセージ：</p>
+<p><%= @friend_request.message %></p>
+<%= debug(@friend_request)%>
+<%= button_to '承認する',[:friend_conclude,@friend_request],:method => :put %>

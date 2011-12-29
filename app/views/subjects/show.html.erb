@@ -1,0 +1,67 @@
+<h2><%= @subject.sub_name %></h2>
+
+<p>
+  <b><font color="green">単位数:</font></b>
+  <%= @subject.credit %>
+</p>
+
+<p>
+  <b><font color="green">年次:</font></b>
+  <%= @subject.year %>年
+</p>
+
+<p>
+  <b><font color="green">配当期:</font></b>
+  <%= @subject.part %>
+</p>
+
+<p>
+  <b><font color="green">時限:</font></b>
+  <%= @subject.period %>
+</p>
+
+<p>
+  <b><font color="green">区分:</font></b>
+  <%= @subject.kubun %>
+</p>
+
+<p>
+  <b><font color="green">必選:</font></b>
+  <%= @subject.ip_comp %>
+</p>
+
+<p>
+  <b><font color="green">分野:</font></b>
+  <% @subject.categs.each do |categ| %>
+  	<li><%= categ.categ_name %></li>
+  <% end %>
+</p>
+
+<% unless Score.risyuzumi?(@subject,current_user) %>
+<% unless current_user.role.r_name == "teacher" %>
+<% unless Entry.where(:user_id => current_user,:subject_id => params[:id]).exists? %>
+  <%= form_tag :controller => 'entries',:action => 'create' do %>
+    <%= hidden_field_tag :entry_subject,params[:id] %>
+    <%= submit_tag '登録' %>
+  <% end %>
+
+  <% else %>
+    <%= form_tag :controller => 'entries',:action => 'release' do %>
+      <%= hidden_field_tag :release_subject,params[:id] %>
+      <%= submit_tag '登録解除' %>
+    <% end %> 
+
+<% end %>
+<% end %>
+<% end %>
+
+<% if current_user.role.r_name == "teacher" %>
+  <%= form_tag :controller => 'curriculums',:action => 'add_select' do %>
+    <%= hidden_field_tag :add_subject,params[:id] %>
+    <%= submit_tag 'カリキュラムに追加' %>
+  <% end %>
+<% end %>
+
+
+<%= link_to 'Edit', edit_subject_path(@subject) if can? :update, @subject %> |
+<%= link_to 'Back', subjects_path %>

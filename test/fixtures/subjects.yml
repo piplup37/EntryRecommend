@@ -1,0 +1,66 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+<% 1.upto(26) do |n| %>
+agun<%= n %>:
+  id: <%= n %>
+  sub_name: A群<%= n %>
+  credit: 2
+  year: 1
+  part: 前期
+  period: 月曜1限
+  kubun: 総合A群
+  ip_comp: 選択
+  cs_comp: 選択
+<% end %>
+
+<% 27.upto(49) do |n| %>
+bgun<%= n %>:
+  id: <%= n %>
+  sub_name: B群<%= n %>
+  credit: 2
+  year: 1
+  part: 前期
+  period: 月曜1限
+  kubun: 総合B群
+  ip_comp: 選択
+  cs_comp: 選択
+<% end %>
+
+<% 50.upto(55) do |n| %>
+cgun<%= n %>:
+  id: <%= n %>
+  sub_name: C群<%= n %>
+  credit: 2
+  year: 1
+  part: 前期
+  period: 月曜1限
+  kubun: 総合C群
+  ip_comp: 選択
+  cs_comp: 選択
+<% end %>
+
+<% 56.upto(74) do |n| %>
+kisosen<%= n %>:
+  id: <%= n %>
+  sub_name: 基礎専門<%= n %>
+  credit: 2
+  year: 1
+  part: 前期
+  period: 月曜1限
+  kubun: 基礎専門
+  ip_comp: 選択
+  cs_comp: 選択
+<% end %>
+
+<% 75.upto(126) do |n| %>
+senmon<%= n %>:
+  id: <%= n %>
+  sub_name: 専門<%= n %>
+  credit: 2
+  year: 1
+  part: 前期
+  period: 月曜1限
+  kubun: 専門
+  ip_comp: 選択
+  cs_comp: 選択
+<% end %>

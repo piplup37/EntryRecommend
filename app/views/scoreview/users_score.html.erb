@@ -1,0 +1,211 @@
+<%= stylesheet_link_tag "users_score" %>
+<h1>成績確認</h1>
+<p>学籍番号： <%= current_user.no %><br>
+学年： <%= current_user.lank %>年生<br>
+氏名： <%= current_user.user_name %><br></p>
+
+<h2>総合A群</h3>
+<table class="basetable">
+  <tr>
+    <td><div class="score-table">
+      <%= render 'scoreview/score',:scores => @sougouA %>
+    </div></td>
+ 
+    <td><div class="entry-table">
+      <%= render 'scoreview/entry',:entries => @ea %>
+    </div></td>
+  </tr>
+  <tr>
+    <td><p>卒業要件単位数: 8〜24<br />
+           修得単位数: <%= @asum %><br />
+           登録単位数: <%= @easum %><br />
+           修得 + 登録単位数: <%= @sea_sum = @asum + @easum %><br />
+           残り: <%= @least = @sea_sum < 8 ? 8-@sea_sum : 0 %></p></td>
+    <td><div class="recommend-table"><%= render 'scoreview/recommend',:least => @a_least,:recommend_subjects => @a_least_recommend if @a_least > 0 %></div></td>
+</table>
+<hr>
+
+<h2>総合B群</h3> 
+<table class="basetable">
+  <tr>
+    <td><div class="score-table">
+      <%= render 'scoreview/score',:scores => @sougouB %>
+    </div></td>
+
+    <td><div class="entry-table">
+      <%= render 'scoreview/entry',:entries => @eb %>
+    </div></td>
+  </tr>
+
+  <tr>
+    <td><p>卒業要件単位数: 12〜28<br />
+           修得単位数: <%= @bsum %><br />
+           登録単位数: <%= @ebsum %><br />
+           修得 + 登録単位数: <%= @seb_sum = @bsum + @ebsum %><br />
+           残り: <%= @least = @seb_sum < 12 ? 12-@seb_sum : 0 %></p></td>
+    <td><div class="recommend-table"><%= render 'scoreview/recommend',:least => @b_least,:recommend_subjects => @b_least_recommend if @b_least > 0 %></div></td>
+  </tr>
+</table>
+<hr>
+
+<h2>総合C群</h3> 
+<table class="basetable">
+  <tr>
+    <td><div class="score-table">
+      <%= render 'scoreview/score',:scores => @sougouC %>
+    </div></td>
+
+    <td><div class="entry-table">
+      <%= render 'scoreview/entry',:entries => @ec %>
+    </div></td>
+  </tr>
+
+  <tr>
+    <td><p>卒業要件単位数: 4〜8<br />
+           修得単位数: <%= @csum %><br />
+           登録単位数: <%= @ecsum %><br />
+           修得 + 登録単位数: <%= @sec_sum = @csum + @ecsum %><br />
+           残り: <%= @least = @sec_sum < 4 ? 4-@sec_sum : 0 %></p></td>
+    <td><div class="recommend-table"><%= render 'scoreview/recommend',:least => @c_least,:recommend_subjects => @c_least_recommend if @c_least > 0 %></div></td>
+  </tr>
+</table>
+<hr>
+
+<h2>基礎専門・必修</h3> 
+<table class="basetable">
+  <tr>
+    <td><div class="score-table">
+      <%= render 'scoreview/score',:scores => @kisosen_hissyu %>
+    </div></td>
+
+    <td><div class="entry-table">
+      <%= render 'scoreview/entry',:entries => @ek1 %>
+    </div></td>
+  </tr>
+
+  <tr>
+    <td><p>卒業要件単位数: 8<br />
+           修得単位数: <%= @k1sum %><br />
+           登録単位数: <%= @ek1sum %><br />
+           修得 + 登録単位数: <%= @sek1_sum = @k1sum + @ek1sum %><br />
+           残り: <%= @least = @sek1_sum < 8 ? 8-@sek1_sum : 0 %></p></td>
+    <td><div class="recommend-table"><%= render 'scoreview/recommend',:least => @k1_least,:recommend_subjects => @k1_least_recommend if @k1_least > 0 %></div></td>
+  </tr>
+</table>
+<hr>
+
+
+<h2>基礎専門・選択必修</h3> 
+<table class="basetable">
+  <tr>
+    <td><div class="score-table">
+      <%= render 'scoreview/score',:scores => @kisosen_senhitsu %>
+    </div></td>
+
+    <td><div class="entry-table">
+      <%= render 'scoreview/entry',:entries => @ek2 %>
+    </div></td>
+  </tr>
+
+  <tr>
+    <td><p>卒業要件単位数: 14〜20<br />
+           修得単位数: <%= @k2sum %><br />
+           登録単位数: <%= @ek2sum %><br />
+           修得 + 登録単位数: <%= @sek2_sum = @k2sum + @ek2sum %><br />
+           残り: <%= @least = @sek2_sum < 14 ? 14-@sek2_sum : 0 %></p></td>
+    <td><div class="recommend-table"><%= render 'scoreview/recommend',:least => @k2_least,:recommend_subjects => @k2_least_recommend if @k2_least > 0 %></div></td>
+  </tr>
+</table>
+<hr>
+
+<h2>基礎専門・選択</h3> 
+<table class="basetable">
+  <tr>
+    <td><div class="score-table">
+      <%= render 'scoreview/score',:scores => @kisosen_sentaku %>
+    </div></td>
+
+    <td><div class="entry-table">
+      <%= render 'scoreview/entry',:entries => @ek3 %>
+    </div></td>
+  </tr>
+
+  <tr>
+    <td><p>卒業要件単位数: 4〜12<br />
+           修得単位数: <%= @k3sum %><br />
+           登録単位数: <%= @ek3sum %><br />
+           修得 + 登録単位数: <%= @sek3_sum = @k3sum + @ek3sum %><br />
+           残り: <%= @least = @sek3_sum < 4 ? 4-@sek3_sum : 0 %><br /></p></td>
+    <td><div class="recommend-table"><%= render 'scoreview/recommend',:least => @k3_least,:recommend_subjects => @k3_least_recommend if @k3_least > 0 %></div></td>
+  </tr>
+</table>
+<hr>
+
+<h2>専門・必修</h3> 
+<table class="basetable">
+  <tr>
+    <td><div class="score-table">
+      <%= render 'scoreview/score',:scores => @senmon_hissyu %>
+    </div></td>
+
+    <td><div class="entry-table">
+      <%= render 'scoreview/entry',:entries => @es1 %>
+    </div></td>
+  </tr>
+
+  <tr>
+    <td><p>卒業要件単位数: 14〜20<br />
+         修得単位数: <%= @s1sum %><br />
+         登録単位数: <%= @es1sum %><br />
+         修得 + 登録単位数: <%= @ses1_sum = @s1sum + @es1sum %><br />
+         残り: <%= @least = @ses1_sum < 14 ? 14-@ses1_sum : 0 %></p></td>
+    <td><div class="recommend-table"><%= render 'scoreview/recommend',:least => @s1_least,:recommend_subjects => @s1_least_recommend if @s1_least > 0 %></div></td>
+  </tr>
+</table>
+<hr>
+
+<h2>専門・選択必修</h3> 
+<table class="basetable">
+  <tr>
+    <td><div class="score-table">
+      <%= render 'scoreview/score',:scores => @senmon_senhitsu %>
+    </div></td>
+
+    <td><div class="entry-table">
+      <%= render 'scoreview/entry',:entries => @es2 %>
+    </div></td>
+  </tr>
+
+  <tr>
+    <td><p>卒業要件単位数: 16〜26<br />
+           修得単位数: <%= @s2sum %><br />
+           登録単位数: <%= @es2sum %><br />
+           修得 + 登録単位数: <%= @ses2_sum = @s2sum + @es2sum %><br />
+           残り: <%= @least = @ses2_sum < 16 ? 16-@ses2_sum : 0 %></p></td>
+    <td><div class="recommend-table"><%= render 'scoreview/recommend',:least => @s2_least,:recommend_subjects => @s2_least_recommend if @s2_least > 0 %></div></td>
+  </tr>
+</table>
+<hr>
+
+<h2>専門・選択</h3> 
+<table class="basetable">
+  <tr>
+    <td><div class="score-table">
+      <%= render 'scoreview/score',:scores => @senmon_sentaku %>
+    </div></td>
+
+    <td><div class="entry-table">
+      <%= render 'scoreview/entry',:entries => @es3 %>
+    </div></td>
+  </tr>
+
+  <tr>
+    <td><p>卒業要件単位数: 18〜48<br />
+           修得単位数: <%= @s3sum %><br />
+           登録単位数: <%= @es3sum %><br />
+           修得 + 登録単位数: <%= @ses3_sum = @s3sum + @es3sum %><br />
+           残り: <%= @least = @ses3_sum < 18 ? 18-@ses3_sum : 0 %></p></td>
+    <td><div class="recommend-table"><%= render 'scoreview/recommend',:least => @s3_least,:recommend_subjects => @s3_least_recommend if @s3_least > 0 %></div></td>
+  </tr>
+</table>
+<hr>

@@ -1,0 +1,8 @@
+<h2><%= current_user.lank %>年生向けの教員推薦カリキュラム</h2>
+<% @curriculums.each do |cur| %>
+  <% @teacher = cur.user.user_name + ' 先生' %> 
+  <p><%= link_to @teacher,cur %></p>
+  <% cur.subjects.each do |sub|%>
+    <%= sub.sub_name %><br>
+  <% end %>
+<% end %>

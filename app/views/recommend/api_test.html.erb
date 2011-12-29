@@ -1,0 +1,13 @@
+<%= form_tag :action => 'api_render' do %>
+<p>学年: <%= number_field_tag 'gakunen' %></p><br>
+総合A群: <%= number_field_tag 'a_credit' %><br>
+総合B群: <%= number_field_tag 'b_credit' %><br>
+総合C群: <%= number_field_tag 'c_credit' %><br>
+基礎専門 必修: <%= number_field_tag 'k1_credit' %><br>
+基礎専門 選択必修: <%= number_field_tag 'k2_credit' %><br>
+基礎専門 選択: <%= number_field_tag 'k3_credit' %><br>
+専門 必修: <%= number_field_tag 's1_credit' %><br>
+専門 選択必修: <%= number_field_tag 's2_credit' %><br>
+専門 選択: <%= number_field_tag 's3_credit' %><br>
+<%= submit_tag 'JSON で貰う' %>
+<% end %>

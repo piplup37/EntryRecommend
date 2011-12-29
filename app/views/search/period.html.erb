@@ -1,0 +1,37 @@
+<h2><%= params[:period] %></h2>
+<table>
+  <tr>
+    <th>科目名</th><th>年次</th><th>配当期</th>
+    <th>時限</th><th>区分</th><th>必選</th>
+  </tr>
+
+<% @subjects.each do |sub| %>
+  <% unless Score.risyuzumi?(sub,current_user) %>
+  <tr style="background-color: <%= cycle('#ffffff','#ccffcc')%>">
+    <td><%= link_to sub.sub_name,sub %></td>
+    <td><%= sub.year %></td> 
+    <td><%= sub.part %></td>
+    <td><%= sub.period %></td>
+    <td><%= sub.kubun %></td>
+    <td><%= sub.ip_comp %></td>
+  </tr>
+  <% end %>
+<% end %>
+
+</table>
+
+<h3>上級生が多く履修している科目</h3>
+<% unless @hsubs.blank? %>
+<% @hsubs.each do |sub| %>
+  <% unless Score.risyuzumi?(sub,current_user) %>
+  <% if sub.year <= current_user.lank and sub.part == '後期' %>
+    <p><%= sub.sub_name %> - <%= sub.risyuritsu(current_user.lank) %> % </p>
+  <% end %>
+  <% end %>
+<% end %>
+<% end %>
+
+<h3>あなたの友人はこんな科目を履修しています</h3>
+<% @friend_entries.each do|e| %>
+  <%= e.user.user_name %> - <%= e.subject.sub_name %><br>
+<% end %>

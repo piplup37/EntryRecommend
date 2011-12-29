@@ -1,0 +1,29 @@
+<h2>科目一覧</h2>
+
+<table>
+  <tr>
+    <th>科目名</th>
+    <th>単位数</th>
+    <th>年次</th>
+    <th>配当期</th>
+    <th>時限</th>
+    <th>区分</th>
+    <th>必選(Ip)</th>
+    <th>必選(Cs)</th>
+  </tr>
+
+<% @subjects.each do |subject| %>
+  <tr style="background-color: <%= cycle('#ffffff','#ccffcc')%>">
+    <td><%= link_to subject.sub_name,subject %></td>
+    <td><%= subject.credit %></td>
+    <td><%= subject.year %></td>
+    <td><%= subject.part %></td>
+    <td><%= subject.period %></td>
+    <td><%= subject.kubun %></td>
+    <td><%= subject.ip_comp %></td>
+    <td><%= subject.cs_comp %></td>
+    <td><%= link_to 'Edit', edit_subject_path(subject) if can? :update, subject %></td>
+    <td><%= link_to 'Destroy', subject, confirm: 'Are you sure?', method: :delete if can? :destroy, subject %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,21 @@
+<h3><font color="#00a300">修得済みの科目</font></h3>
+<table>
+  <tr>
+    <th>科目名</th>
+    <th>必選</th>
+    <th>区分</th>
+    <th>点数</th>
+    <th>単位数</th>
+  </tr>
+
+<% scores.each do |s| %>
+  <tr style="background-color:<%= cycle('#ffffff','#ccffcc')%>">
+    <td style="text-align: left"><%= s.subject.sub_name %></td>
+    <td><%= s.subject.kubun %></td>
+    <td><%= s.subject.ip_comp %></td>
+    <td><%= s.tensu %></td>
+    <td><%= s.subject.credit %></td>
+  </tr>
+<% end %>
+</table>
+

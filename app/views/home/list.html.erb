@@ -1,0 +1,19 @@
+<table border="1">
+  <tr>
+    <th>科目名</th><th>年次</th><th>配当期</th>
+    <th>時限</th><th>区分</th><th>必選</th>
+  </tr>
+
+<% @subjects.each do |sub| %>
+  <% unless Score.where(:user_id => current_user,:subject_id => sub.id).exists? %>
+  <tr>
+    <td><%= link_to sub.sub_name,sub %></td>
+    <td><%= sub.year %></td> 
+    <td><%= sub.part %></td>
+    <td><%= sub.period %></td>
+    <td><%= sub.kubun %></td>
+    <td><%= sub.ip_comp %></td>
+  </tr>
+  <% end %>
+<% end %>
+</table>

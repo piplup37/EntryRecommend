@@ -1,0 +1,32 @@
+
+<p>総合A群</p>
+現在，修得単位数 <%= params[:a_credit] %> 単位です．<br>
+<%= @next = params[:gakunen].to_i + 1 %>年次までに，あと <%= @a_least %> 単位は修得しておきましょう．<br>
+<% @a_recommend.each do |sub| %>
+  <%= sub.sub_name %> <%= sub.kubun %> <%= sub.ip_comp %> <%= sub.period %><br>
+<% end %>
+
+<p>総合B群</p>
+現在，修得単位数 <%= params[:b_credit] %> 単位です．<br>
+<%= @next = params[:gakunen].to_i + 1 %>年次までに，あと <%= @b_least %> 単位は修得しておきましょう．
+<p>総合C群</p>
+現在，修得単位数 <%= params[:c_credit] %> 単位です．<br>
+<%= @next = params[:gakunen].to_i + 1 %>年次までに，あと <%= @c_least %> 単位は修得しておきましょう．
+<p>基礎専門 必修</p>
+現在，修得単位数 <%= params[:k1_credit] %> 単位です．<br>
+<%= @next = params[:gakunen].to_i + 1 %>年次までに，あと <%= @k1_least %> 単位は修得しておきましょう．
+<p>基礎専門 選択必修</p>
+現在，修得単位数 <%= params[:k2_credit] %> 単位です．<br>
+<%= @next = params[:gakunen].to_i + 1 %>年次までに，あと <%= @k2_least %> 単位は修得しておきましょう．
+<p>基礎専門 選択</p>
+現在，修得単位数 <%= params[:k3_credit] %> 単位です．<br>
+<%= @next = params[:gakunen].to_i + 1 %>年次までに，あと <%= @k3_least %> 単位は修得しておきましょう．
+<p>専門 必修</p>
+現在，修得単位数 <%= params[:s1_credit] %> 単位です．<br>
+<%= @next = params[:gakunen].to_i + 1 %>年次までに，あと <%= @s1_least %> 単位は修得しておきましょう．
+<p>専門 選択必修</p>
+現在，修得単位数 <%= params[:s2_credit] %> 単位です．<br>
+<%= @next = params[:gakunen].to_i + 1 %>年次までに，あと <%= @s2_least %> 単位は修得しておきましょう．
+<p>専門 選択</p>
+現在，修得単位数 <%= params[:s3_credit] %> 単位です．<br>
+<%= @next = params[:gakunen].to_i + 1 %>年次までに，あと <%= @s3_least %> 単位は修得しておきましょう．

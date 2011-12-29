@@ -1,0 +1,93 @@
+<%= stylesheet_link_tag 'risyuindex' %>
+<h2>履修登録画面</h2>
+<%= javascript_include_tag 'entry' %>
+<p><%= link_to '履修できる科目一覧',:action => 'subject_index' %></p>
+<p><%= link_to '上級生が多く履修していた科目',:controller => 'recommend',:action => 'upper_entried' %></p>
+<p><%= link_to '教員方の推薦カリキュラム',:controller => 'recommend',:action => 'teacher',:gakunen => current_user.lank %></p>
+<h3>履修登録中の科目一覧</h3>
+
+<div class="jikanwari">
+<table border="1">
+  <tr>
+    <th id="first">時限</th>
+    <th>月曜日</th>
+    <th>火曜日</th>
+    <th>水曜日</th>
+    <th>木曜日</th>
+    <th>金曜日</th>
+  </tr>
+
+  <tr>
+    <th>一時限</th>
+      <td class="cell"
+        onMouseover = "setColor('#ffffcc','cell')"
+        onMouseout = "setColor('','cell')">
+        <%= @m1.sub_name unless @m1.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '月曜1限'},{ :id => 'link' }) %></td>
+      <td class="cell"><%= @tue1.sub_name unless @tue1.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '火曜1限'},{ :id => 'link' }) %></td>
+      <td class="cell"><%= @w1.sub_name unless @w1.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '水曜1限'},{ :id => 'link' }) %></td>
+      <td class="cell"><%= @tur1.sub_name unless @tur1.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '木曜1限'},{ :id => 'link' }) %></td>
+      <td class="cell"><%= @f1.sub_name unless @f1.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '金曜1限'},{ :id => 'link' }) %></td>
+  </tr>
+
+  <tr>
+    <th>二時限</th>
+      <td class="cell"><%= @m2.sub_name unless @m2.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '月曜2限'},{ :id => 'link' }) %></td>
+      <td class="cell"><%= @tue2.sub_name unless @tue2.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '火曜2限'},{ :id => 'link' }) %></td>
+      <td class="cell"><%= @w2.sub_name unless @w2.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '水曜2限'},{ :id => 'link' }) %></td>
+      <td class="cell"><%= @tur2.sub_name unless @tur2.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '木曜2限'},{ :id => 'link' }) %></td>
+      <td class="cell"><%= @f2.sub_name unless @f2.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '金曜2限'},{ :id => 'link' }) %></td>
+  </tr> 
+
+  <tr>
+    <th>三時限</th>
+      <td class="cell"><%= @m3.sub_name unless @m3.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '月曜3限'},{ :id => 'link' }) %></td>
+      <td class="cell"><%= @tue3.sub_name unless @tue3.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '火曜3限'},{ :id => 'link' }) %></td>
+      <td class="cell"><%= @w3.sub_name unless @w3.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '水曜3限'},{ :id => 'link' }) %></td>
+      <td class="cell"><%= @tur3.sub_name unless @tur3.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '木曜3限'},{ :id => 'link' }) %></td>
+      <td class="cell"><%= @f3.sub_name unless @f3.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '金曜3限'},{ :id => 'link' }) %></td>
+  </tr> 
+  
+  <tr>
+    <th>四時限</th>
+      <td class="cell"><%= @m4.sub_name unless @m4.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '月曜4限'},{ :id => 'link' }) %></td>
+      <td class="cell"><%= @tue4.sub_name unless @tue4.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '火曜4限'},{ :id => 'link' }) %></td>
+      <td class="cell"><%= @w4.sub_name unless @w4.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '水曜4限'},{ :id => 'link' }) %></td>
+      <td class="cell"><%= @tur4.sub_name unless @tur4.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '木曜4限'},{ :id => 'link' }) %></td>
+      <td class="cell"><%= @f4.sub_name unless @f4.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '金曜4限'},{ :id => 'link' }) %></td>
+  </tr>
+ 
+  <tr>
+    <th>五時限</th>
+      <td class="cell"><%= @m5.sub_name unless @m5.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '月曜5限'},{ :id => 'link' }) %></td>
+      <td class="cell"><%= @tue5.sub_name unless @tue5.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '火曜5限'},{ :id => 'link' }) %></td>
+      <td class="cell"><%= @w5.sub_name unless @w5.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '水曜5限'},{ :id => 'link' }) %></td>
+      <td class="cell"><%= @tur5.sub_name unless @tur5.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '木曜5限'},{ :id => 'link' }) %></td>
+      <td class="cell"><%= @f5.sub_name unless @f5.nil? %><br>
+          <%= link_to("登録変更",{:controller => 'search',:action => 'period',:period => '金曜5限'},{ :id => 'link' }) %></td>
+  </tr> 
+<table>
+</div>

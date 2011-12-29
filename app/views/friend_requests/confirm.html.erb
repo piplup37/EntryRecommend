@@ -1,0 +1,9 @@
+<h2>申請確認</h2>
+<p>メッセージ</p><br />
+<%= params[:confirm_message] %>
+<p>この内容で <%= @send_user.user_name %> さんに学友申請します</p>
+<%= form_tag :action => 'create' do %>
+<%= hidden_field_tag :to,@send_user.id %>
+<%= hidden_field_tag :message,params[:confirm_message] %>
+<%= submit_tag '申請' %>
+<% end %>

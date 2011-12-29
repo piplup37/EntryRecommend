@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>履修推薦システム</title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <style type ="text/css">
+  
+  body {background-color: #66aa66}
+  
+  </style> 
+</head>
+
+<body>
+<div class="base">
+  <h1><%= image_tag("logo.png") %></h1>
+  <%= Time.now %>
+
+  <div id="user_nav">  
+    <% if user_signed_in?%>
+      <%= current_user.no %> <%= current_user.user_name %> <%= link_to('マイページ',current_user) if current_user.role.r_name == "student" %> <%= link_to "あなたの学友一覧",:controller => 'friend',:action => 'users' if current_user.role.r_name == "student" %> <%= link_to "ログアウト", destroy_user_session_path,:method => :delete %> 
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path %> or  
+      <%= link_to "ログイン", new_user_session_path %>  
+    <% end %>  
+  </div>
+  
+  <hr>
+  <div id="topmenu">
+    <ul>
+      <li><a><%= link_to 'HOME',root_path %></a></li>
+      <% if user_signed_in? %>
+      <li><a><%= link_to '履修登録',entries_path if current_user.role.r_name == "student" %></a></li>
+      <li><a><%= link_to '成績',:controller => "scoreview",:action => "users_score" if current_user.role.r_name == "student" %></a></li>
+      <li><a><%= link_to '友人申請',recieve_list_friend_requests_path if current_user.role.r_name == "student" %></a></li>
+      <% end %>
+    </ul>
+  </div>
+  <div id="sidebar">
+    <ul>
+      <li><%= link_to '学生',users_path %></li>
+      <li><%= link_to '科目一覧',subjects_path %></li>    
+      <li><%= link_to 'カテゴリ',categs_path %></li>
+      <% if user_signed_in? %>
+      <% if current_user.role.r_name == "admin" %>
+        <li><%= link_to '教員ページ',teachers_path  %></li>
+        <li><%= link_to '成績編集',scores_path %></li>
+      <% end %>
+      <% if current_user.role.r_name == "admin" or current_user.role.r_name == "teacher" %>
+        <li><%= link_to 'カリキュラム',curriculums_path %></li> 
+      <% end %>
+      <% end %>
+    </ul>
+  </div>
+
+  <div id="contents">
+    <p id="notice"><%= notice %></p>
+    <p id="alert"><%= alert %></p>
+    <%= content_for?(:content) ? yield(:content) : yield %>
+  </div>
+
+</div>
+</body>
+
+</html>

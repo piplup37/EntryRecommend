@@ -1,0 +1,20 @@
+<h2>ユーザー一覧</h2>
+<table>
+  <tr>
+    <th>学籍番号</th>
+    <th>名前</th>
+    <th>学年</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.no %></td>
+    <td><%= link_to user.user_name, user %></td>
+    <td><%= user.lank %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) if can? :update, user %></td>
+    <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete if can? :destroy, user %></td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,18 @@
+<h3><font color="#ffbb00">履修登録している科目</font></h3>
+<table>
+  <tr>
+    <th>科目名</th>
+    <th>必選</th>
+    <th>区分</th>
+    <th>単位数</th>
+  </tr>
+
+<% entries.each do |e| %>
+  <tr style="background-color:<%= cycle('#ffffff','#ffff99')%>">
+    <td><%= e.subject.sub_name %></td>
+    <td><%= e.subject.kubun %></td>
+    <td><%= e.subject.ip_comp %></td>
+    <td><%= e.subject.credit %></td>
+  </tr>
+<% end %>
+</table>

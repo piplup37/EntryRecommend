@@ -1,0 +1,21 @@
+<h2>受けとった申請一覧</h2>
+<table>
+  <tr>
+    <th>学生</th>
+    <th>承認</th>
+    <th>送信日時</th>
+  </tr>
+
+<% @recieve_requests.each do |req| %>
+  <tr>
+    <td><%= link_to req.from.user_name,req %></td>
+    <td><% if req.approval %>
+          <%= "承認済み" %>
+          <% elsif req.check %>
+            <%= "拒否" %>
+          <% else %><%= "承認待ち" %>
+          <% end %></td>
+    <td><%= req.created_at %></td>
+  </tr>
+<% end %>
+</table>

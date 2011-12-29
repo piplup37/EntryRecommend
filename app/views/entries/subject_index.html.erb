@@ -1,0 +1,31 @@
+<h2>履修できる科目一覧</h2>
+
+<table>
+  <tr>
+    <th>科目名</th>
+    <th>単位数</th>
+    <th>年次</th>
+    <th>配当期</th>
+    <th>時限</th>
+    <th>区分</th>
+    <th>必選(Ip)</th>
+    <th>必選(Cs)</th>
+  </tr>
+
+<% @subjects.each do |subject| %>
+  <% if subject.year <= current_user.lank and subject.part == '後期' %>
+    <% unless Score.where(:user_id => current_user,:subject_id => subject.id).exists? %>
+  <tr>
+    <td><%= link_to subject.sub_name,subject %></td>
+    <td><%= subject.credit %></td>
+    <td><%= subject.year %></td>
+    <td><%= subject.part %></td>
+    <td><%= subject.period %></td>
+    <td><%= subject.kubun %></td>
+    <td><%= subject.ip_comp %></td>
+    <td><%= subject.cs_comp %></td>
+  </tr>
+    <% end %>
+  <% end %>
+<% end %>
+</table>

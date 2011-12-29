@@ -1,0 +1,25 @@
+<h1>Listing curriculums_subjects</h1>
+
+<table>
+  <tr>
+    <th>Curriculum</th>
+    <th>Subject</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @curriculums_subjects.each do |curriculums_subject| %>
+  <tr>
+    <td><%= curriculums_subject.curriculum %></td>
+    <td><%= curriculums_subject.subject %></td>
+    <td><%= link_to 'Show', curriculums_subject %></td>
+    <td><%= link_to 'Edit', edit_curriculums_subject_path(curriculums_subject) %></td>
+    <td><%= link_to 'Destroy', curriculums_subject, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Curriculums subject', new_curriculums_subject_path %>

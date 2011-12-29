@@ -1,0 +1,85 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+body {background-color: #ccff00}
+
+div.base {border: inset 2px yellow;
+          color: #444444;
+          background-color: white;
+          padding: 20px;}
+
+div#contents {margin-left: 140px;
+              margin-top: 50px;
+              width: auto;}
+
+div#sidebar {margin-left: 0px}
+
+div#sidebar ul{list-style-type: none;
+               margin-left: 0;
+               padding-left: 0;
+               padding: 0;
+               margin-top: 30px;
+               width: 120px;
+               float: left}
+
+div#sidebar li{padding-right: 10px;
+               margin-bottom: 10px;
+               border-bottom: solid 1px #66aa66}
+               
+h2{
+font-size:150%;
+border-left: 10px solid #ccff66;/*文字の横に付箋のようなマークを入れる*/
+border-bottom:dotted 1px #cccccc;/*文字の下に点線を入れる設定*/
+width:600px;/*h2の横幅*/
+line-height: 32px;/*h2の高さ設定*/
+padding-left: 5px;
+color:#333333; /*文字の色*/
+margin-top: 1.0em;
+margin-bottom: 0px;
+}
+
+h3{color: #66aa66}
+
+div#topmenu {
+      font: bold 12px/1.5em Verdana;/*- 文字サイズ - */
+      float:left;
+      width:100%;
+      background-color: #66aa66;
+      line-height:normal;
+      color: white;
+}
+div#topmenu ul {
+      margin:0;
+      padding: 5px 40px;/*- Menu 上右下左- */
+      list-style:none;
+}
+div#topmenu li {
+      float:left;
+      margin:0;
+      padding:0 10px 0 10px;
+}
+
+div#topmenu li a {color: #ffffff}
+
+div#topmenu li:hover {
+      background-position:0% -42px;
+}
+div#topmenu li:hover {
+      background-position:100% -42px;
+}
+
+table th {width: auto;
+          border-bottom: solid 2px #ffffff;
+          border-right: solid 2px #ffffff;
+          padding: 2px;
+          background-color: #009933;
+          color: #ffffff;}
+
+table td {width: auto;                    
+          padding: 2px;
+          text-align: center;}

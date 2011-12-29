@@ -1,0 +1,25 @@
+<h1>Listing subjects_teachers</h1>
+
+<table>
+  <tr>
+    <th>Subject</th>
+    <th>Teacher</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @subjects_teachers.each do |subjects_teacher| %>
+  <tr>
+    <td><%= subjects_teacher.subject.sub_name %></td>
+    <td><%= subjects_teacher.teacher.t_name %></td>
+    <td><%= link_to 'Show', subjects_teacher %></td>
+    <td><%= link_to 'Edit', edit_subjects_teacher_path(subjects_teacher) %></td>
+    <td><%= link_to 'Destroy', subjects_teacher, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Subjects teacher', new_subjects_teacher_path %>

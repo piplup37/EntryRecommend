@@ -1,0 +1,22 @@
+<h2>上級生が多く履修していた科目</h2>
+<table>
+  <tr>
+    <th>科目名</th><th>年次</th><th>配当期</th>
+    <th>時限</th><th>区分</th><th>必選</th><th>履修率</th>
+  </tr>
+
+<% @ue_subs.each do |sub| %>
+  <% unless Score.risyuzumi?(sub,current_user) %>
+  <tr style="background-color: <%= cycle('#ffffff','#ccffcc')%>">
+    <td><%= link_to sub.sub_name,sub %></td>
+    <td><%= sub.year %></td> 
+    <td><%= sub.part %></td>
+    <td><%= sub.period %></td>
+    <td><%= sub.kubun %></td>
+    <td><%= sub.ip_comp %></td>
+    <td><%= sub.risyuritsu(current_user.lank) %> % </td>
+  </tr>
+  <% end %>
+<% end %>
+
+</table>

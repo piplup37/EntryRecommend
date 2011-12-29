@@ -1,0 +1,27 @@
+<h2><%= @curriculum.user.user_name %> 先生の推薦科目</h2>
+
+<h3>対象: <%= @curriculum.lank %>年生</b></h3>
+
+<p>
+  <b>説明:</b><br />
+      <%= @curriculum.explain %>
+</p>
+
+<p>科目
+  <ul>
+    <% @curriculum.subjects.each do |sub| %>
+    <li><%= link_to_unless(Score.risyuzumi?(sub,current_user),sub.sub_name,sub )%>
+      <% if can? :manage, @curriculum %>
+      <%= form_tag :action => 'remove_subject' do %>
+        <%= hidden_field_tag :curriculum,params[:id] %>
+        <%= hidden_field_tag :remove_subject,sub.id %>
+        <%= submit_tag 'カリキュラムから外す' %>
+      <% end %>
+      <% end %></li>
+    <% end %>
+  </ul>
+</p>
+
+
+<%= link_to 'Edit', edit_curriculum_path(@curriculum) if can? :update,@curriculum %> 
+<%= link_to 'カリキュラム一覧へ', curriculums_path unless current_user.role.r_name == "student" %>
