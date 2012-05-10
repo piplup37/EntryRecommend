@@ -1,49 +1,4 @@
 Suisen2::Application.routes.draw do
-
-  get "friend_requests/confirm"
-
-  get "entries/subject_index"
-  get "entries/upper_entried"
-  
-  resources :friend_requests do
-    collection do
-      get 'send_list'
-      get 'recieve_list'
-    end
-    member do
-      put 'friend_conclude'
-    end
-  end
-  
-  resources :curriculums_subjects
-
-  resources :curriculums do
-    resources :subjects
-  end
-
-  resources :subjects_teachers
-
-  resources :entries
-  
-  resources :scores
-
-  resources :roles
-
-  resources :subjects do
-    resources :entries
-  end
-
-  resources :teachers
-
-  resources :categs
-	
-  devise_for :users
-  
-  resources :users
-  
-
-  get "home/index"
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -93,11 +48,11 @@ Suisen2::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'home#index'
+  # root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-   match ':controller(/:action(/:id(.:format)))'
+  # match ':controller(/:action(/:id))(.:format)'
 end

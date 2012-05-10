@@ -11,17 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111125164628) do
+ActiveRecord::Schema.define(:version => 20120510092909) do
 
   create_table "carts", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "categs", :force => true do |t|
     t.string   "categ_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "categs_subjects", :id => false, :force => true do |t|
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(:version => 20111125164628) do
     t.integer  "user_id"
     t.integer  "lank"
     t.text     "explain"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "curriculums", ["user_id"], :name => "index_curriculums_on_user_id"
@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(:version => 20111125164628) do
   create_table "curriculums_subjects", :force => true do |t|
     t.integer  "curriculum_id"
     t.integer  "subject_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   add_index "curriculums_subjects", ["curriculum_id"], :name => "index_curriculums_subjects_on_curriculum_id"
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(:version => 20111125164628) do
   create_table "entries", :force => true do |t|
     t.integer  "user_id"
     t.integer  "subject_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "entries", ["subject_id"], :name => "index_entries_on_subject_id"
@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(:version => 20111125164628) do
     t.text     "message"
     t.boolean  "check"
     t.boolean  "approval"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   add_index "friend_requests", ["from_user_id"], :name => "index_friend_requests_on_from_user_id"
@@ -78,8 +78,8 @@ ActiveRecord::Schema.define(:version => 20111125164628) do
   create_table "friendships", :force => true do |t|
     t.integer  "user_id"
     t.integer  "friend_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "friendships", ["friend_id"], :name => "index_friendships_on_friend_id"
@@ -87,16 +87,16 @@ ActiveRecord::Schema.define(:version => 20111125164628) do
 
   create_table "roles", :force => true do |t|
     t.string   "r_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "scores", :force => true do |t|
     t.integer  "user_id"
     t.integer  "subject_id"
     t.integer  "tensu"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "scores", ["subject_id"], :name => "index_scores_on_subject_id"
@@ -105,8 +105,8 @@ ActiveRecord::Schema.define(:version => 20111125164628) do
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
@@ -121,15 +121,15 @@ ActiveRecord::Schema.define(:version => 20111125164628) do
     t.string   "kubun"
     t.string   "ip_comp"
     t.string   "cs_comp"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "subjects_teachers", :force => true do |t|
     t.integer  "subject_id"
     t.integer  "teacher_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "subjects_teachers", ["subject_id"], :name => "index_subjects_teachers_on_subject_id"
@@ -137,8 +137,8 @@ ActiveRecord::Schema.define(:version => 20111125164628) do
 
   create_table "teachers", :force => true do |t|
     t.string   "t_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -152,15 +152,19 @@ ActiveRecord::Schema.define(:version => 20111125164628) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                            :null => false
+    t.datetime "updated_at",                                            :null => false
     t.string   "no"
     t.string   "user_name"
     t.string   "cource"
     t.integer  "lank"
     t.integer  "role_id"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
   end
 
+  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
